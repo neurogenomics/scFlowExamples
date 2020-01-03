@@ -14,6 +14,7 @@
 #' zeisel2018 = prep_zeisel2018()
 #' keptExp = merge_zeisel_celltypes(allExp,useCells=c("TEGLU1","TEGLU2","MGL1","MOL1"))
 #' @export
+
 merge_zeisel_celltypes <- function(allExp,useCells=c("TEGLU1","TEGLU2","MGL1","MOL1")){
   exp = allExp[[useCells[1]]]
   colnames(exp) = rep(useCells[1],dim(exp)[2])

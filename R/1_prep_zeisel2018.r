@@ -18,6 +18,7 @@
 #' @import snow
 #' @import loomR
 #' @import Matrix
+
 prep_zeisel2018 <- function(path){  # path = "/tmp/RtmpNOIeFH/file1b36daccfe5c.zip"
  # module load hdf5/1.10.4
   # wget https://storage.googleapis.com/linnarsson-lab-loom/l5_all.loom
