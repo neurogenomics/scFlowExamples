@@ -15,6 +15,7 @@
 #' keptExp = merge_zeisel_celltypes(allExp,useCells=c("TEGLU1","TEGLU2","MGL1","MOL1"))
 #' @export
 
+# Filter `allExp` values to only those listed in `useCells` var
 merge_zeisel_celltypes <- function(allExp,useCells=c("TEGLU1","TEGLU2","MGL1","MOL1")){
   exp = allExp[[useCells[1]]]
   colnames(exp) = rep(useCells[1],dim(exp)[2])

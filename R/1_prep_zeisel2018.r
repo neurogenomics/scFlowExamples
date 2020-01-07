@@ -22,7 +22,6 @@
 prep_zeisel2018 <- function(path){  # path = "/tmp/RtmpNOIeFH/file1b36daccfe5c.zip"
  # module load hdf5/1.10.4
   # wget https://storage.googleapis.com/linnarsson-lab-loom/l5_all.loom
-
   # Data from: http://mousebrain.org/downloads.html
   #library(tidyverse)
   #library("rhdf5")
@@ -30,6 +29,8 @@ prep_zeisel2018 <- function(path){  # path = "/tmp/RtmpNOIeFH/file1b36daccfe5c.z
   library(loomR)
   library(Matrix)
 
+  # Create the lfile by getting attributes (ClusterName, Gene, SampleID, Sex)
+  # What does 'unique' do on line 40?
   lfile <- connect(filename = path, mode = "r+")
   Lvl5=lfile$col.attrs$ClusterName[]
   genes=lfile$row.attrs$Gene[]
@@ -40,6 +41,7 @@ prep_zeisel2018 <- function(path){  # path = "/tmp/RtmpNOIeFH/file1b36daccfe5c.z
   Sys.setenv('R_MAX_VSIZE'=999000000000)
 
   # Get the expression data for each cell type
+  # What is the `ct` variable - a count? of what? 
   get_exp <- function(ct,lfile){
     library(Matrix)
 
