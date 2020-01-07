@@ -1,6 +1,8 @@
 ---
 title: "Use Zeisel2018 as tutorial dataset for scFlow"
-output: html_document
+output:
+  md_document:
+    variant: markdown_github
 ---
 
 ```{r setup, include=FALSE}
@@ -42,6 +44,7 @@ usethis::use_data(indvExp)
 It's not really neccesary to run the above code, you could just run `data(indvExp)` and continue from here.
 
 ```{r }
+load("data/indvExp.rda")
 # Create a folder to store the 10xGenomics matrix format data
 output_path="~/tmp_ZeiselSCFLOW"
 dir.create(output_path)
@@ -51,7 +54,7 @@ for(i in 1:length(indvExp)){
   x = indvExp[[i]]$exp
   output_file = sprintf("%s/individual_%s",output_path,i)
   DropletUtils::write10xCounts(output_file, x, barcodes=colnames(x), gene.id=rownames(x),
-    gene.symbol=rownames(x), gene.type="Gene Expression", overwrite=FALSE, 
+    gene.symbol=rownames(x), gene.type="Gene Expression", overwrite=TRUE, 
     type="auto", genome="unknown", version="3")
 }
 ```
