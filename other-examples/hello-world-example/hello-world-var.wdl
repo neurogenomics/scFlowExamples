@@ -1,5 +1,6 @@
 version 1.0
 
+# HelloWorld with variable workflow
 workflow HelloWorld {
   call WriteGreeting
 }
