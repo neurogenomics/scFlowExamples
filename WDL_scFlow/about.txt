@@ -1,7 +1,8 @@
 The scripts within the scFlowExample download a public single cell dataset, 
 then downsample it and create all necessary input files for the pipeline. 
 As the public single cell dataset is around 18GB I figured it was best to 
-not actually download it fresh each time but to load the downsampled version: thats `indvExp.rda`
+not actually download it fresh each time but to load the downsampled version: 
+thats `indvExp.rda`
 
 Steps
 1a) Download the source file (18 GB) --or--
@@ -16,5 +17,8 @@ Steps
               - speed - how long did it take?
               - cost - how much did it cost?
 4) Create a Docker container for the R processes
+      - Using Container `best practices` for execution environment (i.e. Terra)
+            - speed - how large is the container?
+            - cost - can optimizing the container reduce execution cost?
 5) Update WDL script to use 'dockerized' R_script (test results)
 
