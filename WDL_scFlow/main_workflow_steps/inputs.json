@@ -1,0 +1,6 @@
+{
+    "check_input.manifest": "gs://fc-8d8bcdce-baa5-4ae3-b8ce-012e76694c09/Manifest.txt",
+    "check_input.out": "gs://fc-8d8bcdce-baa5-4ae3-b8ce-012e76694c09/out.txt",
+    "check_input.rscript": "gs://fc-8d8bcdce-baa5-4ae3-b8ce-012e76694c09/check_inputs.R",
+    "check_input.samplesheet": "gs://fc-8d8bcdce-baa5-4ae3-b8ce-012e76694c09/SamplesSheet.tsv"
+}

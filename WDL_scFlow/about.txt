@@ -18,5 +18,3 @@ Steps
 4) Create a Docker container for the R processes
 5) Update WDL script to use 'dockerized' R_script (test results)
 
-Tomorrow I'll try to add the non-nextflow version of the pipeline to scFlowExample/Readme.Rmd. 
-This will come after the section "Create the sample sheet for scFlow".
