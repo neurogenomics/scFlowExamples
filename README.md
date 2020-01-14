@@ -45,8 +45,19 @@ dir.create(output_path)
 
 ``` r
 # Write the data
+# Convert Mouse Gene Symbols to Human Gene Symbols
+# Limit genes to Mouse:Human orthologs
+
 for(i in 1:length(indvExp)){
   x = indvExp[[i]]$exp
+  
+  mouse2human = One2One::ortholog_data_Mouse_Human$orthologs_one2one 
+  rownames(mouse2human) = mouse2human$mouse.symbol
+  
+  x = x[rownames(x) %in% mouse2human$mouse.symbol,]
+  mouse2human2 = mouse2human[rownames(x),]
+  rownames(x) = mouse2human2$human.symbol
+  
   output_file = sprintf("%s/individual_%s",output_path,i)
   DropletUtils::write10xCounts(output_file, x, barcodes=colnames(x), gene.id=rownames(x),
     gene.symbol=rownames(x), gene.type="Gene Expression", overwrite=TRUE, 
