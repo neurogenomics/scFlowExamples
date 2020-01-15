@@ -31,10 +31,13 @@ Save the data to file
 ---------------------
 
 It’s not really neccesary to run the above code, you could just run
-`data(indvExp)` and continue from here.
+the following code and continue from here:
 
 ``` r
-load("data/indvExp.rda")
+#Install the dataset as a R library
+devtools::install_github("neurogenomics/scFlowExample")
+#load the dataset
+indvExp <- scFlowExamples::indvExp
 # Create a folder to store the 10xGenomics matrix format data
 output_path <- "~/tmp_ZeiselSCFLOW"
 dir.create(output_path)
