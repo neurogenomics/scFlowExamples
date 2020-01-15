@@ -36,7 +36,7 @@ It’s not really neccesary to run the above code, you could just run
 ``` r
 load("data/indvExp.rda")
 # Create a folder to store the 10xGenomics matrix format data
-output_path="~/tmp_ZeiselSCFLOW"
+output_path <- "~/tmp_ZeiselSCFLOW"
 dir.create(output_path)
 ```
 
@@ -44,21 +44,37 @@ dir.create(output_path)
     ## exists
 
 ``` r
-# Write the data
-# Convert Mouse Gene Symbols to Human Gene Symbols
-# Limit genes to Mouse:Human orthologs
-
 for(i in 1:length(indvExp)){
   x = indvExp[[i]]$exp
   
-  mouse2human = One2One::ortholog_data_Mouse_Human$orthologs_one2one 
-  rownames(mouse2human) = mouse2human$mouse.symbol
+  # Convert gene symbols from mouse to human
+  # Limit genes to Mouse:Human orthologs
   
-  x = x[rownames(x) %in% mouse2human$mouse.symbol,]
-  mouse2human2 = mouse2human[rownames(x),]
-  rownames(x) = mouse2human2$human.symbol
+  mouse2human <- One2One::ortholog_data_Mouse_Human$orthologs_one2one 
+  rownames(mouse2human) <- mouse2human$mouse.symbol
   
-  output_file = sprintf("%s/individual_%s",output_path,i)
+  x <- x[rownames(x) %in% mouse2human$mouse.symbol,]
+  mouse2human2 <- mouse2human[rownames(x),]
+  rownames(x) <- mouse2human2$human.symbol
+  
+  # Convert human gene symbols to Ensembl gene IDs
+  
+  ensembl <- biomaRt::useMart("ensembl",dataset="hsapiens_gene_ensembl")
+  
+  hgnc2ensg <- biomaRt::getBM(attributes=c('hgnc_symbol', 'ensembl_gene_id'), 
+        filters = 'hgnc_symbol', 
+        values = rownames(x), 
+        mart = ensembl)
+  
+  hgnc2ensg <- as.data.frame(hgnc2ensg, row.names = hgnc2ensg$hgnc_symbol)
+  
+  x <- x[rownames(x) %in% hgnc2ensg$hgnc_symbol,]  
+  hgnc2ensg2 <- hgnc2ensg[rownames(x),]
+  rownames(x) <- hgnc2ensg2$ensembl_gene_id
+  
+  # Write the data
+  
+  output_file <- sprintf("%s/individual_%s",output_path,i)
   DropletUtils::write10xCounts(output_file, x, barcodes=colnames(x), gene.id=rownames(x),
     gene.symbol=rownames(x), gene.type="Gene Expression", overwrite=TRUE, 
     type="auto", genome="unknown", version="3")
@@ -78,10 +94,10 @@ Create the sample sheet for scFlow
 ----------------------------------
 
 ``` r
-dx=unlist(lapply(indvExp,FUN=function(x){return(x$dx)}))
-sex=sample(c("M","F"),length(dx),replace=T)
-age=sample(1:100,length(dx))
-sample_sheet = cbind(manifest=z[,1],individual=rownames(z),diagnosis=dx,sex=sex)
+dx <- unlist(lapply(indvExp,FUN=function(x){return(x$dx)}))
+sex <- sample(c("M","F"),length(dx),replace=T)
+age <- sample(1:100,length(dx))
+sample_sheet <- cbind(manifest=z[,1],individual=rownames(z),diagnosis=dx,sex=sex)
 write.table(sample_sheet,file=sprintf("%s/SampleSheet.tsv",output_path), row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
 #individual     group   diagnosis   coverage    sex     age     PMI     duration    capdate     prepdate    seqdate     MLS     RIN     manifest
 ```
