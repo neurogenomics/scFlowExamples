@@ -13,16 +13,16 @@ Setup the dataset
 -----------------
 
     # create a temporary directory
-    td = tempdir()
+    td <- tempdir()
     # create the placeholder file
-    tf = tempfile(tmpdir=td, fileext=".loom")
+    tf <- tempfile(tmpdir=td, fileext=".loom")
     # download into the placeholder file
     download.file("https://storage.googleapis.com/linnarsson-lab-loom/l5_all.loom", tf) # tf="~/l5_all.loom"
     unzip(tf)
 
-    allExp = prep_zeisel2018(path=tf)
-    keptExp = merge_zeisel_celltypes(allExp,useCells=c("TEGLU1","TEGLU2","MGL1","MOL1"))
-    indvExp = split_celltypes_byIndv(keptExp,joinCells=c("TEGLU1","TEGLU2"),nCases=3,jointName="Pyramidal")
+    allExp <- prep_zeisel2018(path=tf)
+    keptExp <- merge_zeisel_celltypes(allExp,useCells=c("TEGLU1","TEGLU2","MGL1","MOL1"))
+    indvExp <- split_celltypes_byIndv(keptExp,joinCells=c("TEGLU1","TEGLU2"),nCases=3,jointName="Pyramidal")
 
     # Save data set so that it can be used easily
     usethis::use_data(indvExp)
@@ -45,7 +45,7 @@ dir.create(output_path)
 
 ``` r
 for(i in 1:length(indvExp)){
-  x = indvExp[[i]]$exp
+  x <- indvExp[[i]]$exp
   
   # Convert gene symbols from mouse to human
   # Limit genes to Mouse:Human orthologs
