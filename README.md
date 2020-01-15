@@ -44,7 +44,7 @@ dir.create(output_path)
     ## exists
 
 ``` r
-source("mouseSymbol_to_humanEnsembl.r")
+source("R/mouseSymbol_to_humanEnsembl.r")
 
 for(i in 1:length(indvExp)){
   x <- indvExp[[i]]$exp
