@@ -57,7 +57,6 @@ indvExp <- scFlowExamples::indvExp
 output_path <- "~/tmp_ZeiselSCFLOW"
 dir.create(output_path)
 
-
 for (i in 1:length(indvExp)) {
   x <- indvExp[[i]]$exp
   
