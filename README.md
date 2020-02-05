@@ -57,10 +57,17 @@ indvExp <- scFlowExamples::indvExp
 output_path <- "~/tmp_ZeiselSCFLOW"
 dir.create(output_path)
 
-# Write the data
+
 for (i in 1:length(indvExp)) {
   x <- indvExp[[i]]$exp
+  
+  # Convert gene symbols from mouse to human
+  # Limit genes to Mouse:Human orthologs
+  # Convert human gene symbols to Ensembl gene IDs
+  
   x <- mouse_symbol_to_human_ensembl(x)
+  
+  # Write the data
 
   output_file <- sprintf("%s/individual_%s", output_path, i)
   DropletUtils::write10xCounts(output_file, x,
