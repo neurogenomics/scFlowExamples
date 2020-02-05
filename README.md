@@ -15,6 +15,13 @@ install.packages("ids")
 devtools::install_github("NathanSkene/One2One")
 ```
 
+Install the dataset repository
+------------------------------
+
+``` r
+devtools::install_github("neurogenomics/scFlowExample")
+```
+
 Setup the dataset
 -----------------
 
@@ -64,8 +71,8 @@ for (i in 1:length(indvExp)) {
 }
 ```
 
-Create the manifesto file for scFlow
-------------------------------------
+Create the manifesto file for *scflow*
+--------------------------------------
 
 ``` r
 y <- ids::proquint(n = length(indvExp), n_words = 1L, use_cache = TRUE, use_openssl = FALSE)
@@ -73,8 +80,8 @@ z <- data.frame(key = y, filepath = sprintf("%s/%s", output_path, list.files(out
 write.table(z, file = sprintf("%s/Manifest.txt", output_path), row.names = FALSE, col.names = TRUE, quote = FALSE, sep = "\t")
 ```
 
-Create the sample sheet for scFlow
-----------------------------------
+Create the sample sheet for *scflow*
+------------------------------------
 
 ``` r
 dx <- unlist(lapply(indvExp, FUN = function(x) {
