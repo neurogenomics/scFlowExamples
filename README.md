@@ -40,7 +40,7 @@ allExp <- prep_zeisel2018(path = tf)
 keptExp <- merge_zeisel_celltypes(allExp, useCells = c("TEINH15", "TEINH19", "MGL1", "MOL1"))
 indvExp <- split_celltypes_byIndv(keptExp, joinCells = c("TEINH15", "TEINH19"), nCases = 3, jointName = "Teinh")
 
-# Save data set so that it can be used easily
+# Save dataset so that it can be used easily
 usethis::use_data(indvExp, overwrite = TRUE)
 ```
 
