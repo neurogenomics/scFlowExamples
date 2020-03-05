@@ -62,7 +62,8 @@ Cellranger output format, a `Manifest.txt` file containing data path for
 individual samples and a `SampleSheet.tsv` containing sample metadata.
 
 ``` r
-write_data()
-write_scflow_manifest(indvExp)
-write_scflow_samplesheet(indvExp)
+library(scFlowExamples)
+write_data(output_dir = "full/path/to/output/dir")
+write_scflow_manifest(indvExp, output_dir = "full/path/to/output/dir")
+write_scflow_samplesheet(indvExp, output_dir = "full/path/to/output/dir")
 ```
