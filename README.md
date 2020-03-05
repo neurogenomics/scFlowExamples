@@ -13,6 +13,10 @@ BiocManager::install("DropletUtils")
 install.packages("ids")
 
 devtools::install_github("NathanSkene/One2One")
+
+devtools::install_github(repo = "hhoeflin/hdf5r")
+
+devtools::install_github(repo = "mojaveazure/loomR", ref = "develop")
 ```
 
 Install the dataset repository
