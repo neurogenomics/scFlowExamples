@@ -3,7 +3,7 @@
 #'
 #' @param dt Object of class dgCMatrix
 #'
-#' @importFrom One2One ortholog_data_Mouse_Human
+#' @import One2One
 #'
 #' @export
 

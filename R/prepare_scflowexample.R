@@ -4,7 +4,7 @@
 #' @param output_dir Path for the output dir. Default is current directory
 #'
 #' @importFrom DropletUtils write10xCounts
-#' @importFrom One2One ortholog_data_Mouse_Human
+#' @import One2One
 #'
 #' @author Nurun Fancy <n.fancy@imperial.ac.uk>
 #'
@@ -90,7 +90,7 @@ write_scflow_samplesheet <- function(indvExp = indvExp, output_dir = ".") {
   }))
   sex <- sample(c("M", "F"), length(dx), replace = T)
   age <- sample(seq(3, 18, 3), length(dx), replace = TRUE)
-  sample_sheet <- cbind(manifest = manifest$key,
+  sample_sheet <- cbind(manifest = as.character(manifest$key),
                         individual = rownames(manifest),
                         diagnosis = dx,
                         sex = sex,
