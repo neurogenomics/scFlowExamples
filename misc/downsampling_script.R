@@ -28,13 +28,13 @@ usethis::use_data(indvExp_ds_4K, overwrite = TRUE)
 data("indvExp", package = "scFlowExamples")
 
 #To use a downsampled dataset
-data("indvExp_downsampled", package = "scFlowExamples")
+data("indvExp_ds", package = "scFlowExamples")
 
 #To use a downsampled dataset
-data("indvExp_downsampled_4000genes", package = "scFlowExamples")
+data("indvExp_ds_4K", package = "scFlowExamples")
 
 
 #To write out the data in 10X genomics format
-write_data(indvExp = indvExp_downsampled_4000genes, output_dir = "~/scflow_ds_genes/")
-write_scflow_manifest(indvExp = indvExp_downsampled_4000genes, output_dir = "~/scflow_ds_genes")
-write_scflow_samplesheet(indvExp = indvExp_downsampled_4000genes, output_dir = "~/scflow_ds_genes")
+write_data(indvExp = indvExp_ds_4K, output_dir = "~/scflow_ds_genes/")
+write_scflow_manifest(indvExp = indvExp_ds_4K, output_dir = "~/scflow_ds_genes")
+write_scflow_samplesheet(indvExp = indvExp_ds_4K, output_dir = "~/scflow_ds_genes")

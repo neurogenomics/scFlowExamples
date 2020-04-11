@@ -4,7 +4,7 @@
 \alias{write_data}
 \title{Generate scFlowExample dataset for scFlow and nf-core-scflow}
 \usage{
-write_data(output_dir = ".")
+write_data(indvExp = indvExp, output_dir = ".")
 }
 \arguments{
 \item{output_dir}{Path for the output dir. Default is current directory}

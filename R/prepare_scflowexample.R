@@ -10,7 +10,7 @@
 #'
 #' @export
 
-write_data <- function(output_dir = ".") {
+write_data <- function(indvExp = indvExp, output_dir = ".") {
 
   # load data
   data("indvExp", package = "scFlowExamples")
