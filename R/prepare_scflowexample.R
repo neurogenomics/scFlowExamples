@@ -10,7 +10,7 @@
 #'
 #' @export
 
-write_data <- function(indvExp = indvExp, output_dir = ".") {
+write_data <- function(indvExp = indvExp, output_dir = getwd()) {
 
   # load data
   data("indvExp", package = "scFlowExamples")
@@ -55,7 +55,7 @@ write_data <- function(indvExp = indvExp, output_dir = ".") {
 #'
 #' @export
 
-write_scflow_manifest <- function(indvExp = indvExp, output_dir = ".") {
+write_scflow_manifest <- function(indvExp = indvExp, output_dir = getwd()) {
   output_path <- file.path(output_dir, "tmp_Zeisel2015_scflow")
   y <- ids::proquint(n = length(indvExp),
                      n_words = 1L,
@@ -81,7 +81,7 @@ write_scflow_manifest <- function(indvExp = indvExp, output_dir = ".") {
 #'
 #' @export
 
-write_scflow_samplesheet <- function(indvExp = indvExp, output_dir = ".") {
+write_scflow_samplesheet <- function(indvExp = indvExp, output_dir = getwd()) {
   output_path <- file.path(output_dir, "tmp_Zeisel2015_scflow")
   manifest <- read.delim(file = file.path(output_path, "Manifest.txt"),
                          header = TRUE)

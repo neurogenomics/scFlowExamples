@@ -4,7 +4,7 @@
 \alias{write_scflow_manifest}
 \title{Write Manifest file to be run by scFlow and nf-core-scflow}
 \usage{
-write_scflow_manifest(indvExp = indvExp, output_dir = ".")
+write_scflow_manifest(indvExp = indvExp, output_dir = getwd())
 }
 \arguments{
 \item{indvExp}{indvExp loaded by the first function write_data.}
