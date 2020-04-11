@@ -4,7 +4,7 @@
 \alias{write_scflow_samplesheet}
 \title{Write SampleSheet file to be run by scFlow and nf-core-scflow}
 \usage{
-write_scflow_samplesheet(indvExp = indvExp, output_dir = ".")
+write_scflow_samplesheet(indvExp = indvExp, output_dir = getwd())
 }
 \arguments{
 \item{indvExp}{indvExp loaded by the first function write_data.}
