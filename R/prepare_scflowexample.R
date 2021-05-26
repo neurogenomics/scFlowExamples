@@ -2,6 +2,7 @@
 #' Generate scFlowExample dataset for scFlow and nf-core-scflow
 #'
 #' @param output_dir Path for the output dir. Default is current directory
+#' @param dataset the dataset to be used to write to the location from scFlowExamples. Default is indvExp, other choices indvExp_ds and indvExp_ds_4K
 #'
 #' @importFrom DropletUtils write10xCounts
 #' @import One2One
@@ -10,17 +11,17 @@
 #'
 #' @export
 
-write_data <- function(indvExp = indvExp, output_dir = getwd()) {
+write_data <- function(dataset = "indvExp", output_dir = getwd()) {
 
   # load data
-  data("indvExp", package = "scFlowExamples")
+  data(list=dataset, package = "scFlowExamples")
 
   # Create a folder to store the 10xGenomics matrix format data
   output_path <- file.path(output_dir, "tmp_Zeisel2015_scflow")
   dir.create(output_path)
 
-  for (i in 1:length(indvExp)) {
-    x <- indvExp[[i]]$exp
+  for (i in 1:length(get(dataset))) {
+    x <- get(dataset)[[i]]$exp
 
     # Convert gene symbols from mouse to human
     # Limit genes to Mouse:Human orthologs
@@ -46,7 +47,7 @@ write_data <- function(indvExp = indvExp, output_dir = getwd()) {
 
 #' Write Manifest file to be run by scFlow and nf-core-scflow
 #'
-#' @param indvExp indvExp loaded by the first function write_data.
+#' @param dataset the dataset to be used to write to the location from scFlowExamples. Default is indvExp, other choices indvExp_ds and indvExp_ds_4K
 #' @param output_dir Path for the output dir. Default is current directory.
 #'
 #' @importFrom ids proquint
@@ -55,9 +56,11 @@ write_data <- function(indvExp = indvExp, output_dir = getwd()) {
 #'
 #' @export
 
-write_scflow_manifest <- function(indvExp = indvExp, output_dir = getwd()) {
+write_scflow_manifest <- function(dataset = "indvExp", output_dir = getwd()) {
+  # load data
+  data(list=dataset, package = "scFlowExamples")
   output_path <- file.path(output_dir, "tmp_Zeisel2015_scflow")
-  y <- ids::proquint(n = length(indvExp),
+  y <- ids::proquint(n = length(get(dataset)),
                      n_words = 1L,
                      use_cache = TRUE,
                      use_openssl = FALSE)
@@ -74,18 +77,20 @@ write_scflow_manifest <- function(indvExp = indvExp, output_dir = getwd()) {
 #' The scFlowExample dataset, Manifest.txt and SampleSheet.tsv files can
 #' be prepared using three simple functions.
 #'
-#' @param indvExp indvExp loaded by the first function write_data.
+#' @param dataset the dataset to be used to write to the location from scFlowExamples. Default is indvExp, other choices indvExp_ds and indvExp_ds_4K
 #' @param output_dir Path for the output dir. Default is current directory.
 #'
 #' @author Nurun Fancy <n.fancy@imperial.ac.uk>
 #'
 #' @export
 
-write_scflow_samplesheet <- function(indvExp = indvExp, output_dir = getwd()) {
+write_scflow_samplesheet <- function(dataset = "indvExp", output_dir = getwd()) {
+  # load data
+  data(list=dataset, package = "scFlowExamples")
   output_path <- file.path(output_dir, "tmp_Zeisel2015_scflow")
   manifest <- read.delim(file = file.path(output_path, "Manifest.txt"),
                          header = TRUE)
-  dx <- unlist(lapply(indvExp, FUN = function(x) {
+  dx <- unlist(lapply(get(dataset), FUN = function(x) {
     return(x$dx)
   }))
   sex <- sample(c("M", "F"), length(dx), replace = T)
