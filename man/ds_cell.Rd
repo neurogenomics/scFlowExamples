@@ -13,14 +13,10 @@ columns.}
 \item{prop_cell}{Proportion of original cell number to downsample.
 Value ranges between 0-1. Providing expected proportion will override
 n_cell.}
-
-\item{cell_type}{Cell type name to downsample from.}
-
-\item{n_cell}{Number of cells required after downsampling.}
 }
 \description{
 Downsampling function for a single cell type
 }
 \author{
-Nurun Fancy <n.fancy@imperial.ac.uk>
+Nurun Fancy \href{mailto:n.fancy@imperial.ac.uk}{n.fancy@imperial.ac.uk}
 }

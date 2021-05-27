@@ -23,7 +23,7 @@ then split into two groups of samples. i.e. cases and controls}
 \item{jointName}{New name of the joined celltype}
 }
 \value{
-Returns an `outputList` which is what format and information?
+Returns an \code{outputList} which is what format and information?
 }
 \description{
 #########################################################################

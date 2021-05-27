@@ -11,6 +11,8 @@ merge_zeisel_celltypes(
 }
 \arguments{
 \item{allExp}{A list, where each entry has a matrix}
+
+\item{useCells}{vector of cells for filtering. Default TEGLU1,TEGLU2,MGL1,MOL1}
 }
 \value{
 A list containing $exp with the sparse matrix and $annot with annot data
@@ -19,12 +21,14 @@ A list containing $exp with the sparse matrix and $annot with annot data
 \code{merge_zeisel_celltypes}
 }
 \examples{
+\dontrun{
 # create a temporary directory
 td = tempdir()
- create the placeholder file
+# create the placeholder file
 tf = tempfile(tmpdir=td, fileext=".zip")
-download into the placeholder file
+# download into the placeholder file
 download.file("https://storage.googleapis.com/linnarsson-lab-loom/l5_all.loom", tf)
 zeisel2018 = prep_zeisel2018()
 keptExp = merge_zeisel_celltypes(allExp,useCells=c("TEGLU1","TEGLU2","MGL1","MOL1"))
+}
 }

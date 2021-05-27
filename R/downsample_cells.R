@@ -10,10 +10,8 @@
 #' all genes are returned.
 #'
 #' @author Nurun Fancy <n.fancy@imperial.ac.uk>
-#'
+#' @importFrom matrixStats rowVars
 #' @export
-
-
 downsample_cells <- function(keptExp,
                              prop_cell = NULL,
                              n_top_genes = NULL){
@@ -49,8 +47,6 @@ downsample_cells <- function(keptExp,
 #'
 #' @param exp A dgCMatrix object where genes as rows and cells as
 #' columns.
-#' @param cell_type Cell type name to downsample from.
-#' @param n_cell Number of cells required after downsampling.
 #' @param prop_cell Proportion of original cell number to downsample.
 #' Value ranges between 0-1. Providing expected proportion will override
 #' n_cell.
@@ -58,7 +54,6 @@ downsample_cells <- function(keptExp,
 #' @author Nurun Fancy <n.fancy@imperial.ac.uk>
 #'
 #' @export
-
 ds_cell <- function(exp,
                     prop_cell = prop_cell){
 

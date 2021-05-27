@@ -16,6 +16,7 @@ A list containing $exp with the sparse matrix and $annot with annot data
 \code{prep_zeisel2018} Loads the Zeisel2018 dataset in Loom format and converts to sparse matrix
 }
 \examples{
+\dontrun{
 # create a temporary directory
 td = tempdir()
  create the placeholder file
@@ -23,4 +24,5 @@ tf = tempfile(tmpdir=td, fileext=".zip")
 download into the placeholder file
 download.file("https://storage.googleapis.com/linnarsson-lab-loom/l5_all.loom", tf)
 zeisel2018 = prep_zeisel2018()
+}
 }

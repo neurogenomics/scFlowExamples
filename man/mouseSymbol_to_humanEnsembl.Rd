@@ -8,6 +8,8 @@ mouseSymbol_to_humanEnsembl(x, ...)
 }
 \arguments{
 \item{x}{Object of class dgCMatrix}
+
+\item{...}{additional parameters}
 }
 \description{
 Convert gene symbols from mouse to human and then to human ensembl IDs

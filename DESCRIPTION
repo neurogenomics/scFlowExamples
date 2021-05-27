@@ -1,14 +1,48 @@
 Package: scFlowExamples
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
+Title: Provide example datsets to run scFlow
+Version: 0.1.0
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+        c(
+    person(given = "Combiz",
+           family = "Khozoie",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
+           email = "c.khozoie@imperial.ac.uk",
+           comment = c(ORCID = "0000-0002-1634-5287")),
+    person(given = "Nurun",
+           family = "Fancy",
+           role = c("aut"),
+           email = "n.fancy@imperial.ac.uk",
+           comment = c(ORCID = "YOUR-ORCID-ID")),
+    person(given = "Alan",
+           family = "Murphy",
+           role = c("aut"),
+           email = "a.murphy@imperial.ac.uk",
+           comment = c(ORCID = "YOUR-ORCID-ID")),
+    person(given = "Nathan",
+           family = "Skene",
+           role = c("aut"),
+           email = "n.skene@imperial.ac.uk",
            comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: What license it uses
+    )
+Description: scFlowExamples is designed to give functionality and datasets to run an example worflow of scFlow.
+Roxygen: list(markdown = TRUE)
+License: Artistic-2.0
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
+URL: https://github.com/neurogenomics/scFlowExample
+BugReports: https://github.com/neurogenomics/scFlowExample/issues
+Depends: R(>= 3.5)
+Imports:
+  DropletUtils, 
+  Matrix, 
+  One2One, 
+  biomaRt, 
+  ids, 
+  loomR,
+  rhdf5, 
+  snow, 
+  tidyverse,
+  matrixStats,
+  utils,
+  stats

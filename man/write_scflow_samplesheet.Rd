@@ -4,10 +4,10 @@
 \alias{write_scflow_samplesheet}
 \title{Write SampleSheet file to be run by scFlow and nf-core-scflow}
 \usage{
-write_scflow_samplesheet(indvExp = indvExp, output_dir = getwd())
+write_scflow_samplesheet(dataset = "indvExp", output_dir = getwd())
 }
 \arguments{
-\item{indvExp}{indvExp loaded by the first function write_data.}
+\item{dataset}{the dataset to be used to write to the location from scFlowExamples. Default is indvExp, other choices indvExp_ds and indvExp_ds_4K}
 
 \item{output_dir}{Path for the output dir. Default is current directory.}
 }
@@ -16,5 +16,5 @@ The scFlowExample dataset, Manifest.txt and SampleSheet.tsv files can
 be prepared using three simple functions.
 }
 \author{
-Nurun Fancy <n.fancy@imperial.ac.uk>
+Nurun Fancy \href{mailto:n.fancy@imperial.ac.uk}{n.fancy@imperial.ac.uk}
 }

@@ -4,10 +4,8 @@
 #' @param dt Object of class dgCMatrix
 #'
 #' @import One2One
-#'
+#' @importFrom stats na.omit
 #' @export
-
-
 mouse_symbol_to_human_ensembl <- function(dt) {
 
   # Convert gene symbols from mouse to human

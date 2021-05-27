@@ -4,14 +4,16 @@
 \alias{write_data}
 \title{Generate scFlowExample dataset for scFlow and nf-core-scflow}
 \usage{
-write_data(indvExp = indvExp, output_dir = getwd())
+write_data(dataset = "indvExp", output_dir = getwd())
 }
 \arguments{
+\item{dataset}{the dataset to be used to write to the location from scFlowExamples. Default is indvExp, other choices indvExp_ds and indvExp_ds_4K}
+
 \item{output_dir}{Path for the output dir. Default is current directory}
 }
 \description{
 Generate scFlowExample dataset for scFlow and nf-core-scflow
 }
 \author{
-Nurun Fancy <n.fancy@imperial.ac.uk>
+Nurun Fancy \href{mailto:n.fancy@imperial.ac.uk}{n.fancy@imperial.ac.uk}
 }

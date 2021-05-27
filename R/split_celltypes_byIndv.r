@@ -11,7 +11,6 @@
 #' @return Returns an `outputList` which is what format and information?
 #'
 #' @export
-
 split_celltypes_byIndv <- function(keptExp,joinCells=c("TEGLU1","TEGLU2"),nCases=3,jointName="Pyramidal"){
 
   # joinCells[1] are the 'cases' and joinCells[2] are the 'controls'

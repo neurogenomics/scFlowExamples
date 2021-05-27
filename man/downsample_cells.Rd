@@ -21,5 +21,5 @@ all genes are returned.}
 Downsample to get fewer cells from the specified cell type
 }
 \author{
-Nurun Fancy <n.fancy@imperial.ac.uk>
+Nurun Fancy \href{mailto:n.fancy@imperial.ac.uk}{n.fancy@imperial.ac.uk}
 }

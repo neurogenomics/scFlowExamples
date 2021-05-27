@@ -10,11 +10,10 @@
 #' @author Nurun Fancy <n.fancy@imperial.ac.uk>
 #'
 #' @export
-
 write_data <- function(dataset = "indvExp", output_dir = getwd()) {
 
-  # load data
-  data(list=dataset, package = "scFlowExamples")
+  # load data - no need to load, lazy load will do it
+  #data(list=dataset, package = "scFlowExamples")
 
   # Create a folder to store the 10xGenomics matrix format data
   output_path <- file.path(output_dir, "tmp_Zeisel2015_scflow")
@@ -55,10 +54,9 @@ write_data <- function(dataset = "indvExp", output_dir = getwd()) {
 #' @author Nurun Fancy <n.fancy@imperial.ac.uk>
 #'
 #' @export
-
 write_scflow_manifest <- function(dataset = "indvExp", output_dir = getwd()) {
-  # load data
-  data(list=dataset, package = "scFlowExamples")
+  # load data - no need to load, lazy load will do it
+  #data(list=dataset, package = "scFlowExamples")
   output_path <- file.path(output_dir, "tmp_Zeisel2015_scflow")
   y <- ids::proquint(n = length(get(dataset)),
                      n_words = 1L,
@@ -81,12 +79,13 @@ write_scflow_manifest <- function(dataset = "indvExp", output_dir = getwd()) {
 #' @param output_dir Path for the output dir. Default is current directory.
 #'
 #' @author Nurun Fancy <n.fancy@imperial.ac.uk>
-#'
+#' @importFrom utils data 
+#' @importFrom utils read.delim 
+#' @importFrom utils write.table
 #' @export
-
 write_scflow_samplesheet <- function(dataset = "indvExp", output_dir = getwd()) {
-  # load data
-  data(list=dataset, package = "scFlowExamples")
+  # load data - no need to load, lazy load will do it
+  #data(list=dataset, package = "scFlowExamples")
   output_path <- file.path(output_dir, "tmp_Zeisel2015_scflow")
   manifest <- read.delim(file = file.path(output_path, "Manifest.txt"),
                          header = TRUE)

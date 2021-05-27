@@ -2,14 +2,13 @@
 #' Convert gene symbols from mouse to human and then to human ensembl IDs
 #'
 #' @param x Object of class dgCMatrix
+#' @param ... additional parameters
 #'
 #' @import One2One
 #' @importFrom biomaRt useMart
 #' @importFrom biomaRt getBM
 #'
 #' @export
-
-
 mouseSymbol_to_humanEnsembl <- function(x,
                             ...) {
 
