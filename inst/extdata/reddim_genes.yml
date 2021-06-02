@@ -1,0 +1,130 @@
+NEURONS:
+  - SYT1
+  - SNAP25
+  - GRIN1
+EN:
+  - RBFOX3
+  - CUX2
+  - SATB2
+  - RORB
+  - TLE4
+  - SLC17A7
+  - CAMK2A
+  - NRGN
+  - LTK
+  - FREM3
+  - ESR1
+  - SEMA3E
+  - ABO
+  - CRABP1
+IN:
+  - GAD1
+  - GAD2
+  - PVALB
+  - SST
+  - VIP
+  - SV2C
+  - LAMP5
+  - CA1
+DOPA:
+  - DRD1
+  - DRD2
+  - DRD3
+  - DRD4
+  - DRD5
+MICROGLIA:
+  - P2RY12
+  - CD74
+  - CD68
+  - FTL
+  - APOE
+  - SPP1
+  - CSF1R
+  - C3
+  - DOCK8
+  - LPAR6
+PVM:
+  - CD163
+  - MSR1
+  - CD206
+  - MRC1
+  - F13A1
+  - MCTP1
+  - IQGAP2 
+ASTROCYTES:
+  - AQP4
+  - GFAP
+  - SLC1A2
+  - SLC14A1
+ENDOTHELIAL:
+  - FLT1
+  - CLDN5
+  - VWF 
+  - PTPRC
+OLIGO:
+  - MBP
+  - MOBP
+  - PLP1
+  - SOX10
+OPC:
+  - PDGFRA
+  - VCAN
+  - CSPG4
+  - SMOC1
+TCELLS:
+  - B2M
+  - RPL13
+  - EEF1A1
+  - TMSB10
+  - S100A6
+  - RPS19
+  - VIM
+  - TMSB4X
+  - RPS27A
+  - RPL13P12
+  - RPL28
+  - TPT1
+  - GFAP
+  - RPS8
+  - RPS28P7
+  - RPLP1
+  - RPS3
+  - IL26
+  - IL7R
+  - CD3D
+  - CD3E
+  - IL32
+  - LDHB
+  - JUNB
+  - VIM
+  - IER2
+  - TMEM66
+  - S100A4
+  - GAPDH
+  - SKAP1
+  - PRF1
+  - ITGA4
+  - TRAC
+  - CXCR4
+  - CCL5
+  - CD163
+  - CD206
+BCELLS:
+  - RPS19
+  - IGHG1
+  - RP11-234A1.1
+  - B2M
+  - RPL3P4
+  - RPL10
+  - AC016739.2
+  - RPLP1
+  - RPL13
+  - RPL41
+  - SSR4
+  - RPS8
+  - RPS14
+  - RPS28P7
+  - RPL13P12
+  - MZB1
+  - SDC1
+  - PRDM1
